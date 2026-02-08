@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { publications, abstracts, mediaHighlights } from '../data/publications.js';
+---
+
+<Layout title="Publications | Sabeen Ahmed">
+  <Navbar />
+  
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-slate-50 to-blue-50 py-16">
+      <div class="section-container">
+        <p class="text-accent font-medium mb-2">Publications</p>
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Research Publications</h1>
+        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">
+          A comprehensive list of peer-reviewed publications, preprints, and conference abstracts. 
+          For citations and metrics, visit my 
+          <a href="https://scholar.google.com/citations?user=_AYZlAIAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
+            Google Scholar profile
+          </a>.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Journal Publications -->
+    <section class="py-16 bg-white">
+      <div class="section-container">
+        <h2 class="section-title flex items-center">
+          <i class="fas fa-book-open text-accent mr-4"></i>
+          Peer-Reviewed Publications
+        </h2>
+        <div class="space-y-6">
+          {publications.map((pub, index) => (
+            <div class="card border-l-4 border-accent">
+              <div class="flex flex-col lg:flex-row lg:items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
+                  <span class="text-accent font-semibold text-sm">{index + 1}</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex flex-wrap gap-2 mb-2">
+                    <span class="text-xs font-medium px-2 py-1 bg-accent/10 text-accent rounded">
+                      {pub.venue}
+                    </span>
+                    <span class="text-xs font-medium px-2 py-1 bg-gray-100 text-gray-600 rounded">
+                      {pub.year}
+                    </span>
+                    {pub.type === 'preprint' && (
+                      <span class="text-xs font-medium px-2 py-1 bg-yellow-100 text-yellow-700 rounded">
+                        Preprint
+                      </span>
+                    )}
+                  </div>
+                  <h3 class="text-lg font-semibold text-primary mb-2">{pub.title}</h3>
+                  <p class="text-sm text-gray-600 mb-2">{pub.authors}</p>
+                  {pub.note && (
+                    <p class="text-xs text-gray-500 italic">{pub.note}</p>
+                  )}
+                </div>
+                {pub.url && (
+                  <a
+                    href={pub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center px-4 py-2 bg-accent text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap"
+                  >
+                    <i class="fas fa-external-link-alt mr-2"></i>View
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Conference Abstracts -->
+    <section class="py-16 bg-gray-50">
+      <div class="section-container">
+        <h2 class="section-title flex items-center">
+          <i class="fas fa-chalkboard-teacher text-accent mr-4"></i>
+          Conference Abstracts & Posters
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {abstracts.map((abstract) => (
+            <div class="card">
+              <span class="text-xs font-medium px-2 py-1 bg-accent/10 text-accent rounded inline-block mb-3">
+                {abstract.venue} ({abstract.year})
+              </span>
+              <h3 class="text-md font-semibold text-primary mb-2">{abstract.title}</h3>
+              <p class="text-sm text-gray-600">{abstract.authors}</p>
+              {abstract.url && (
+                <a
+                  href={abstract.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center text-accent hover:text-blue-700 text-sm font-medium mt-3"
+                >
+                  <i class="fas fa-external-link-alt mr-1"></i>View
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Media Highlights -->
+    <section class="py-16 bg-white">
+      <div class="section-container">
+        <h2 class="section-title flex items-center">
+          <i class="fas fa-newspaper text-accent mr-4"></i>
+          Media Highlights
+        </h2>
+        <p class="text-gray-600 mb-8">
+          Research featured in news outlets and scientific publications.
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {mediaHighlights.map((item) => (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card hover:-translate-y-1 transition-transform duration-300 group"
+            >
+              <span class="text-xs font-medium text-gray-500">{item.source} · {item.year}</span>
+              <h3 class="text-md font-semibold text-primary mt-2 group-hover:text-accent transition-colors">
+                {item.title}
+              </h3>
+              <span class="inline-flex items-center text-accent text-sm mt-3">
+                Read more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Dissertation -->
+    <section class="py-16 bg-gray-50">
+      <div class="section-container">
+        <h2 class="section-title flex items-center">
+          <i class="fas fa-graduation-cap text-accent mr-4"></i>
+          Dissertation
+        </h2>
+        <div class="card max-w-3xl">
+          <h3 class="text-xl font-semibold text-primary mb-3">
+            Multimodal AI-driven Biomarker for Early Detection of Cancer Cachexia
+          </h3>
+          <p class="text-gray-600 mb-4">
+            <strong>Degree:</strong> Doctor of Philosophy<br />
+            <strong>Institution:</strong> Department of Electrical Engineering, College of Engineering, University of South Florida<br />
+            <strong>Date:</strong> March 25, 2025
+          </p>
+          <a
+            href="https://www.proquest.com/openview/2f4943959f825a37c4011d3356eb3946/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary inline-flex"
+          >
+            <i class="fas fa-book mr-2"></i>View Dissertation
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

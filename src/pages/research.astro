@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const researchProjects = [
+  {
+    title: "SMAART-AI: Automated CT Segmentation Pipeline",
+    description: "A fully automated CT segmentation pipeline for skeletal muscle assessment using vertebral-level detection, UNet-based segmentation, and uncertainty scoring (Bayesian and ensemble methods). This tool enables reliable radiologic skeletal muscle area assessment as a biomarker for cancer cachexia diagnosis.",
+    technologies: ["PyTorch", "UNet", "Bayesian Neural Networks", "Docker", "Weights & Biases"],
+    status: "Active",
+  },
+  {
+    title: "Multimodal AI Biomarker for Cancer Cachexia",
+    description: "Development and validation of a multimodal AI biomarker combining radiologic imaging, structured clinical variables, and unstructured text for early cancer cachexia detection. The model integrates CT imaging features, clinical data, and transformer-derived text embeddings.",
+    technologies: ["Multimodal Learning", "Transformer NLP", "Computer Vision", "Uncertainty Quantification"],
+    status: "Active",
+  },
+  {
+    title: "LLM Safety Evaluation Pipelines",
+    description: "Building safety-gated LLM evaluation pipelines that identify hallucinations, medical misinformation, and unsafe recommendations, supported by human-in-the-loop verification using cancer patient questions extracted from audio interviews.",
+    technologies: ["LLMs", "LangChain", "Safety Evaluation", "Human-in-the-Loop"],
+    status: "Active",
+  },
+  {
+    title: "TRUST-RNNs: Uncertainty Propagation in RNNs",
+    description: "Developed trustworthy uncertainty propagation methods for sequential data analysis in recurrent neural networks. This framework enables reliable predictions with uncertainty estimates for time-series data in healthcare applications.",
+    technologies: ["RNNs", "Bayesian Learning", "Uncertainty Quantification", "Time Series"],
+    status: "Published",
+  },
+  {
+    title: "Failure Detection in Deep Neural Networks",
+    description: "Research on failure detection frameworks for deep neural networks in medical imaging, enabling the identification of unreliable predictions and improving the trustworthiness of AI systems in clinical settings.",
+    technologies: ["Neural Networks", "Reliability Metrics", "Medical Imaging", "Bayesian Learning"],
+    status: "Published",
+  },
+];
+
+const skills = {
+  frameworks: ["PyTorch", "TensorFlow", "JAX (basic)", "Hugging Face", "scikit-learn"],
+  tools: ["Python", "MATLAB", "Docker", "Git", "Weights & Biases", "CUDA (familiar)", "LangChain"],
+  specializations: ["CNN/UNet Segmentation", "Bayesian Neural Networks", "Uncertainty Quantification", "Transfer Learning", "Survival Modeling"],
+  domains: ["Computer Vision", "Multimodal Learning", "Data Harmonization", "Medical ML", "NLP"],
+};
+---
+
+<Layout title="Research | Sabeen Ahmed">
+  <Navbar />
+  
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-slate-50 to-blue-50 py-16">
+      <div class="section-container">
+        <p class="text-accent font-medium mb-2">Research</p>
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Research Focus</h1>
+        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">
+          My research focuses on developing reliable AI systems for oncology, with emphasis on 
+          multimodal deep learning, uncertainty quantification, and clinical applications for 
+          cancer diagnosis and prognosis.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Current Projects -->
+    <section class="py-20 bg-white">
+      <div class="section-container">
+        <h2 class="section-title">Research Projects</h2>
+        <div class="space-y-8">
+          {researchProjects.map((project) => (
+            <div class="card border-l-4 border-accent">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-semibold text-primary">{project.title}</h3>
+                <span class={`px-3 py-1 rounded-full text-xs font-medium ${
+                  project.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'
+                }`}>
+                  {project.status}
+                </span>
+              </div>
+              <p class="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Technical Skills -->
+    <section class="py-20 bg-gray-50">
+      <div class="section-container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="card">
+            <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+              <i class="fas fa-code text-accent mr-3"></i>Frameworks & Libraries
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {skills.frameworks.map((skill) => (
+                <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg text-sm font-medium">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+              <i class="fas fa-tools text-accent mr-3"></i>Tools & Technologies
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {skills.tools.map((skill) => (
+                <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg text-sm font-medium">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+              <i class="fas fa-brain text-accent mr-3"></i>Specializations
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {skills.specializations.map((skill) => (
+                <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg text-sm font-medium">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+              <i class="fas fa-microscope text-accent mr-3"></i>Research Domains
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {skills.domains.map((skill) => (
+                <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg text-sm font-medium">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Lab Affiliations -->
+    <section class="py-20 bg-white">
+      <div class="section-container">
+        <h2 class="section-title">Lab Affiliations</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="https://lab.moffitt.org/Rasool/" target="_blank" rel="noopener noreferrer" 
+             class="card hover:-translate-y-1 transition-transform duration-300 text-center">
+            <i class="fas fa-flask text-4xl text-accent mb-4"></i>
+            <h3 class="text-lg font-semibold text-primary mb-2">Lab Rasool</h3>
+            <p class="text-sm text-gray-600">Moffitt Cancer Center</p>
+          </a>
+          <a href="https://github.com/lab-rasool" target="_blank" rel="noopener noreferrer"
+             class="card hover:-translate-y-1 transition-transform duration-300 text-center">
+            <i class="fab fa-github text-4xl text-accent mb-4"></i>
+            <h3 class="text-lg font-semibold text-primary mb-2">Lab GitHub</h3>
+            <p class="text-sm text-gray-600">Open Source Projects</p>
+          </a>
+          <a href="https://huggingface.co/Lab-Rasool" target="_blank" rel="noopener noreferrer"
+             class="card hover:-translate-y-1 transition-transform duration-300 text-center">
+            <i class="fas fa-cube text-4xl text-accent mb-4"></i>
+            <h3 class="text-lg font-semibold text-primary mb-2">HuggingFace</h3>
+            <p class="text-sm text-gray-600">Models & Datasets</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

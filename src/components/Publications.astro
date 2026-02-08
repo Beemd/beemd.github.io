@@ -1,0 +1,51 @@
+---
+import { publications } from '../data/publications.js';
+
+const selectedPubs = publications.slice(0, 5);
+---
+
+<section class="py-20 bg-white">
+  <div class="section-container">
+    <p class="text-accent font-medium mb-2">Publications</p>
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="text-gray-600 mb-10 max-w-3xl">
+      A selection of recent peer-reviewed publications. For a complete list, visit my 
+      <a href="https://scholar.google.com/citations?user=_AYZlAIAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
+        Google Scholar
+      </a> profile.
+    </p>
+    
+    <div class="space-y-6">
+      {selectedPubs.map((pub) => (
+        <div class="card border-l-4 border-accent">
+          <div class="flex flex-col md:flex-row md:items-start gap-4">
+            <div class="flex-1">
+              <span class="text-sm text-accent font-medium">{pub.venue} ({pub.year})</span>
+              <h3 class="text-lg font-semibold text-primary mt-1 mb-2">{pub.title}</h3>
+              <p class="text-sm text-gray-600 mb-3">{pub.authors}</p>
+              {pub.note && (
+                <p class="text-xs text-gray-500 italic">{pub.note}</p>
+              )}
+            </div>
+            {pub.url && (
+              <a
+                href={pub.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center text-accent hover:text-blue-700 text-sm font-medium whitespace-nowrap"
+              >
+                <i class="fas fa-external-link-alt mr-1"></i>View
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="text-center mt-12">
+      <a href="/publications" class="btn-primary">
+        <i class="fas fa-book mr-2"></i>View All Publications
+      </a>
+    </div>
+  </div>
+</section>

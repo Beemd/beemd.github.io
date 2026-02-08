@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const contactInfo = [
+  {
+    icon: "fas fa-envelope",
+    label: "Work Email",
+    value: "Sabeen.Ahmed@moffitt.org",
+    href: "mailto:Sabeen.Ahmed@moffitt.org",
+  },
+  {
+    icon: "fas fa-envelope",
+    label: "Personal Email",
+    value: "Sabeenahmed.a@gmail.com",
+    href: "mailto:Sabeenahmed.a@gmail.com",
+  },
+  {
+    icon: "fas fa-building",
+    label: "Office",
+    value: "Moffitt Cancer Center, 12902 Magnolia Drive, Tampa, FL 33612",
+    href: null,
+  },
+];
+
+const socialLinks = [
+  {
+    icon: "fab fa-linkedin",
+    label: "LinkedIn",
+    value: "linkedin.com/in/sabeen-ahmed-35697538",
+    href: "https://www.linkedin.com/in/sabeen-ahmed-35697538",
+  },
+  {
+    icon: "fab fa-github",
+    label: "GitHub",
+    value: "github.com/Beemd",
+    href: "https://github.com/Beemd",
+  },
+  {
+    icon: "fab fa-google-scholar",
+    label: "Google Scholar",
+    value: "View Profile",
+    href: "https://scholar.google.com/citations?user=_AYZlAIAAAAJ&hl=en&authuser=1",
+  },
+  {
+    icon: "fab fa-orcid",
+    label: "ORCID",
+    value: "0000-0003-0456-3073",
+    href: "https://orcid.org/0000-0003-0456-3073",
+  },
+];
+
+const labLinks = [
+  {
+    icon: "fas fa-flask",
+    label: "Lab Rasool",
+    value: "lab.moffitt.org/Rasool",
+    href: "https://lab.moffitt.org/Rasool/",
+  },
+  {
+    icon: "fab fa-github",
+    label: "Lab GitHub",
+    value: "github.com/lab-rasool",
+    href: "https://github.com/lab-rasool",
+  },
+  {
+    icon: "fas fa-cube",
+    label: "HuggingFace",
+    value: "huggingface.co/Lab-Rasool",
+    href: "https://huggingface.co/Lab-Rasool",
+  },
+];
+---
+
+<Layout title="Contact | Sabeen Ahmed">
+  <Navbar />
+  
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-slate-50 to-blue-50 py-16">
+      <div class="section-container">
+        <p class="text-accent font-medium mb-2">Contact</p>
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Get in Touch</h1>
+        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">
+          I'm always interested in discussing research collaborations, speaking opportunities, 
+          and innovative projects at the intersection of AI and oncology.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Contact Cards -->
+    <section class="py-20 bg-white">
+      <div class="section-container">
+        <div class="grid lg:grid-cols-3 gap-8">
+          <!-- Contact Information -->
+          <div class="card">
+            <h2 class="text-xl font-semibold text-primary mb-6 flex items-center">
+              <i class="fas fa-address-card text-accent mr-3"></i>Contact Information
+            </h2>
+            <div class="space-y-4">
+              {contactInfo.map((item) => (
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i class={`${item.icon} text-accent`}></i>
+                  </div>
+                  <div>
+                    <span class="text-sm text-gray-500">{item.label}</span>
+                    {item.href ? (
+                      <a href={item.href} class="block text-primary hover:text-accent transition-colors font-medium">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p class="text-gray-700">{item.value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Social Profiles -->
+          <div class="card">
+            <h2 class="text-xl font-semibold text-primary mb-6 flex items-center">
+              <i class="fas fa-share-alt text-accent mr-3"></i>Social Profiles
+            </h2>
+            <div class="space-y-4">
+              {socialLinks.map((item) => (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-4 group"
+                >
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
+                    <i class={`${item.icon} text-accent group-hover:text-white transition-colors`}></i>
+                  </div>
+                  <div>
+                    <span class="text-sm text-gray-500">{item.label}</span>
+                    <p class="text-primary group-hover:text-accent transition-colors font-medium">{item.value}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Lab Links -->
+          <div class="card">
+            <h2 class="text-xl font-semibold text-primary mb-6 flex items-center">
+              <i class="fas fa-microscope text-accent mr-3"></i>Lab & Research
+            </h2>
+            <div class="space-y-4">
+              {labLinks.map((item) => (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-4 group"
+                >
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
+                    <i class={`${item.icon} text-accent group-hover:text-white transition-colors`}></i>
+                  </div>
+                  <div>
+                    <span class="text-sm text-gray-500">{item.label}</span>
+                    <p class="text-primary group-hover:text-accent transition-colors font-medium">{item.value}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Map / Location -->
+    <section class="py-20 bg-gray-50">
+      <div class="section-container">
+        <div class="card max-w-4xl mx-auto text-center">
+          <h2 class="text-2xl font-semibold text-primary mb-4">Moffitt Cancer Center</h2>
+          <p class="text-gray-600 mb-6">
+            Department of Machine Learning<br />
+            12902 Magnolia Drive<br />
+            Tampa, FL 33612, USA
+          </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Moffitt+Cancer+Center+Tampa+FL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary inline-flex"
+          >
+            <i class="fas fa-map-marker-alt mr-2"></i>View on Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

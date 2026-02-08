@@ -1,0 +1,67 @@
+---
+const socialLinks = [
+  { href: "/contact", icon: "fa-solid fa-envelope", label: "Contact" },
+  { href: "https://www.linkedin.com/in/sabeen-ahmed-35697538", icon: "fa-brands fa-linkedin", label: "LinkedIn" },
+  { href: "https://github.com/Beemd", icon: "fa-brands fa-github", label: "GitHub" },
+  { href: "https://huggingface.co/Lab-Rasool", icon: "fas fa-cube", label: "HuggingFace" },
+  { href: "https://scholar.google.com/citations?user=_AYZlAIAAAAJ&hl=en&authuser=1", icon: "fa-brands fa-google-scholar", label: "Google Scholar" },
+  { href: "https://orcid.org/0000-0003-0456-3073", icon: "fa-brands fa-orcid", label: "ORCID" },
+];
+---
+
+<header class="relative min-h-screen flex items-center pt-16 bg-gradient-to-br from-slate-50 to-blue-50">
+  <div class="section-container">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text Content -->
+      <div class="order-2 lg:order-1">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6">
+          Sabeen Ahmed, Ph.D.
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-6 leading-relaxed">
+          Developing AI/ML solutions for oncology research, specializing in multimodal deep learning, 
+          uncertainty quantification, and reliable AI systems for cancer diagnosis and prognosis.
+        </p>
+        <p class="text-md text-gray-500 mb-8">
+          <strong class="text-primary">Moffitt Cancer Center</strong> · Department of Machine Learning
+        </p>
+        
+        <!-- Social Links -->
+        <div class="flex flex-wrap gap-3 mb-8">
+          {socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg hover:bg-accent hover:text-white text-gray-600 transition-all duration-200"
+              title={link.label}
+            >
+              <i class={link.icon}></i>
+            </a>
+          ))}
+        </div>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4">
+          <a href="/contact" class="btn-primary">
+            <i class="fas fa-envelope mr-2"></i>Get in Touch
+          </a>
+          <a href="/publications" class="btn-secondary">
+            <i class="fas fa-book mr-2"></i>View Publications
+          </a>
+        </div>
+      </div>
+      
+      <!-- Profile Photo -->
+      <div class="order-1 lg:order-2 flex justify-center">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-accent to-primary rounded-full blur-2xl opacity-20 scale-110"></div>
+          <img
+            src="/assets/profile-photo.jpg"
+            alt="Sabeen Ahmed"
+            class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-2xl border-4 border-white"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

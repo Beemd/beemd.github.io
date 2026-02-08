@@ -1,0 +1,77 @@
+---
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { href: "/research", label: "Research" },
+  { href: "/publications", label: "Publications" },
+  { href: "/contact", label: "Contact" },
+  { href: "https://lab.moffitt.org/Rasool/", label: "Lab Rasool" },
+];
+
+const socialLinks = [
+  { href: "https://www.linkedin.com/in/sabeen-ahmed-35697538", icon: "fa-brands fa-linkedin", label: "LinkedIn" },
+  { href: "https://github.com/Beemd", icon: "fa-brands fa-github", label: "GitHub" },
+  { href: "https://scholar.google.com/citations?user=_AYZlAIAAAAJ&hl=en&authuser=1", icon: "fa-brands fa-google-scholar", label: "Scholar" },
+  { href: "https://orcid.org/0000-0003-0456-3073", icon: "fa-brands fa-orcid", label: "ORCID" },
+];
+---
+
+<footer class="bg-primary text-white py-12">
+  <div class="section-container">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <!-- About -->
+      <div>
+        <h3 class="text-xl font-serif font-bold mb-4 text-white">Sabeen Ahmed, Ph.D.</h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Machine Learning Engineer<br />
+          Moffitt Cancer Center
+        </p>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-semibold mb-4 text-white">Quick Links</h4>
+        <ul class="space-y-2">
+          {quickLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="text-gray-300 hover:text-white transition-colors text-sm"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Connect -->
+      <div>
+        <h4 class="font-semibold mb-4 text-white">Connect</h4>
+        <div class="flex gap-4">
+          {socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-300 hover:text-white transition-colors text-xl"
+              title={link.label}
+            >
+              <i class={link.icon}></i>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-600 pt-8 text-center text-sm text-gray-400">
+      <p>
+        © {currentYear} Sabeen Ahmed. All rights reserved. | 
+        <a href="https://lab.moffitt.org/Rasool/" target="_blank" rel="noopener noreferrer" class="hover:text-white">Lab Rasool</a> at 
+        <a href="https://moffitt.org" target="_blank" rel="noopener noreferrer" class="hover:text-white">Moffitt Cancer Center</a>
+      </p>
+    </div>
+  </div>
+</footer>

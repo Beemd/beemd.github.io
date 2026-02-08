@@ -1,0 +1,48 @@
+---
+const stats = [
+  { value: "6+", label: "Journal Papers" },
+  { value: "7+", label: "Conference Papers" },
+  { value: "$1M+", label: "Research Funding" },
+  { value: "3+", label: "Awards" },
+];
+---
+
+<section id="about" class="py-20 bg-white">
+  <div class="section-container">
+    <p class="text-accent font-medium mb-2">About Me</p>
+    <h2 class="section-title">Background & Expertise</h2>
+    
+    <div class="grid lg:grid-cols-3 gap-12">
+      <!-- Main Content -->
+      <div class="lg:col-span-2 space-y-6 text-gray-600 leading-relaxed">
+        <p>
+          I am a Machine Learning Engineer at H. Lee Moffitt Cancer Center and Research Institute, 
+          working at the intersection of artificial intelligence and oncology. My research focuses on 
+          developing innovative machine learning frameworks for cancer diagnosis, prognosis, and treatment optimization.
+        </p>
+        <p>
+          I earned my Ph.D. in Electrical Engineering (Machine Learning) from the University of South Florida, 
+          where my dissertation explored multimodal AI-driven biomarkers for early detection of cancer cachexia. 
+          My work spans multimodal data integration, uncertainty quantification, computer vision, 
+          and transformer-based NLP for clinical applications.
+        </p>
+        <p>
+          Prior to academia, I accumulated over 15 years of industry experience in telecommunications 
+          and network analytics, leading engineering teams and large-scale data projects at Jazz VEON Company in Pakistan.
+        </p>
+      </div>
+      
+      <!-- Stats -->
+      <div class="lg:col-span-1">
+        <div class="grid grid-cols-2 gap-4">
+          {stats.map((stat) => (
+            <div class="card text-center">
+              <div class="text-3xl font-bold text-accent mb-2">{stat.value}</div>
+              <div class="text-sm text-gray-500">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

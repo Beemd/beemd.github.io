@@ -1,0 +1,59 @@
+---
+const researchAreas = [
+  {
+    title: "Multimodal Deep Learning",
+    description: "Developing frameworks that integrate CT imaging, clinical data, and transformer-derived text embeddings for improved cancer outcome prediction and early detection.",
+    icon: "fa-solid fa-layer-group",
+  },
+  {
+    title: "Medical Image Segmentation",
+    description: "Building automated CT segmentation pipelines (SMAART-AI) for skeletal muscle assessment using vertebral-level detection, UNet-based segmentation, and uncertainty scoring.",
+    icon: "fa-solid fa-image",
+  },
+  {
+    title: "Uncertainty Quantification",
+    description: "Implementing Bayesian neural networks and ensemble methods for reliable AI predictions with trustworthy uncertainty estimates in clinical applications.",
+    icon: "fa-solid fa-chart-line",
+  },
+  {
+    title: "Transformer-based NLP",
+    description: "Applying transformer models (Hugging Face) to extract symptom information from unstructured clinical notes and pathology reports.",
+    icon: "fa-solid fa-language",
+  },
+  {
+    title: "LLM Safety & Evaluation",
+    description: "Developing safety-gated LLM evaluation pipelines that identify hallucinations, medical misinformation, and unsafe recommendations with human-in-the-loop verification.",
+    icon: "fa-solid fa-shield-halved",
+  },
+  {
+    title: "Cancer Cachexia Detection",
+    description: "Creating multimodal AI biomarkers combining radiologic imaging, structured clinical variables, and unstructured text for early cancer cachexia detection.",
+    icon: "fa-solid fa-microscope",
+  },
+];
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="section-container">
+    <p class="text-accent font-medium mb-2">Research Focus</p>
+    <h2 class="section-title">Current Research Areas</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {researchAreas.map((area) => (
+        <div class="card group hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+            <i class={`${area.icon} text-xl text-accent group-hover:text-white`}></i>
+          </div>
+          <h3 class="text-lg font-semibold text-primary mb-3">{area.title}</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">{area.description}</p>
+        </div>
+      ))}
+    </div>
+    
+    <div class="text-center mt-12">
+      <a href="/research" class="btn-primary">
+        <i class="fas fa-flask mr-2"></i>Learn More About My Research
+      </a>
+    </div>
+  </div>
+</section>
