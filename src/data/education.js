@@ -7,13 +7,6 @@ export const education = [
     note: "Dissertation: Multimodal AI-driven Biomarker for Early Detection of Cancer Cachexia",
   },
   {
-    period: "2020 - 2022",
-    degree: "Ph.D. (transferred) in Electrical and Computer Engineering",
-    institution: "Rowan University",
-    location: "Glassboro, NJ, USA",
-    note: null,
-  },
-  {
     period: "2001 - 2004",
     degree: "B.E. in Electrical Engineering",
     institution: "National University of Sciences and Technology (NUST)",
