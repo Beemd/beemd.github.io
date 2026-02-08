@@ -56,57 +56,6 @@ I am a Machine Learning Engineer at H. Lee Moffitt Cancer Center and Research In
 └── README.md                 # This file
 ```
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-* Node.js 18+
-* npm or yarn
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/Beemd/beemd.github.io.git
-   cd beemd.github.io
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-4. Open http://localhost:4321 in your browser.
-
-### Building for Production
-
-```bash
-npm run build
-```
-
-The built site will be in the `dist/` directory.
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
-## 🛠️ Built With
-
-* [Astro](https://astro.build/) - Static site generator
-* [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-* [Font Awesome](https://fontawesome.com/) - Icons
-* [Google Fonts](https://fonts.google.com/) - Typography (Cormorant Garamond, Source Sans 3)
-
 ## 📬 Contact
 
 * **Work Email**: [Sabeen.Ahmed@moffitt.org](mailto:Sabeen.Ahmed@moffitt.org)
